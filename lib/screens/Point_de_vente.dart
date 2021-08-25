@@ -1,83 +1,95 @@
 import 'package:flutter/material.dart';
-import 'package:comm/screens/home.dart';
 
-class Register extends StatefulWidget {
+class Pv extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _PvState createState() => _PvState();
 }
 
-class _RegisterState extends State<Register> {
+class _PvState extends State<Pv> {
   @override
   Widget build(BuildContext context) {
     Widget nomField = new TextFormField(
-      keyboardType: TextInputType.text,
-      onChanged: (String onValue) {
-        setState(() {});
-      },
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.person),
-        labelText: 'Nom & Prénom Agent',
-        hintText: 'Entrez  nom et prenom Agent',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
-    Widget temoinField = TextFormField(
-      keyboardType: TextInputType.text,
-      onChanged: (String onValue) {
-        setState(() {});
-      },
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.person),
-        labelText: 'Nom & Prénom Témoin Agent',
-        hintText: 'Entrez  nom et prenom Témoin Agent',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
-    Widget contactField = TextFormField(
-      keyboardType: TextInputType.phone,
-      onChanged: (String onValue) {
-        setState(() {});
-      },
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.phone),
-        labelText: 'Numero de téléphone agent',
-        hintText: 'Entrez  Numero de téléphone agent',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
-    Widget numField = TextFormField(
-      keyboardType: TextInputType.number,
-      onChanged: (String onValue) {
-        setState(() {});
-      },
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.keyboard),
-        labelText: 'Numero de carte nationale Agent',
-        hintText: 'Entrez  Numero de votre carte nationale',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-      ),
-    );
-
-    Widget adressField = TextFormField(
       keyboardType: TextInputType.streetAddress,
       onChanged: (String onValue) {
         setState(() {});
       },
       decoration: InputDecoration(
-        prefixIcon: Icon(Icons.home),
-        labelText: 'Adresse Agent ',
-        hintText: 'Entrez la residence de votre agent',
+        prefixIcon: Icon(Icons.location_city),
+        labelText: 'POINT DE VENTE',
+        hintText: 'Entrez  Nom de Site',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
+
+    Widget lieuField = TextFormField(
+      keyboardType: TextInputType.streetAddress,
+      onChanged: (String onValue) {
+        setState(() {});
+      },
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.add_location),
+        labelText: 'LOCALISATION',
+        hintText: 'Entrez le lieu du point de vente',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
+
+    Widget mtnField = TextFormField(
+      keyboardType: TextInputType.number,
+      onChanged: (String onValue) {
+        setState(() {});
+      },
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.sim_card),
+        labelText: 'RECHARGE MTN',
+        hintText: 'Entrez numero de la sim',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
+    Widget mtnmomoField = TextFormField(
+      keyboardType: TextInputType.number,
+      onChanged: (String onValue) {
+        setState(() {});
+      },
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.sim_card),
+        labelText: 'MTN MOBILE MONEY',
+        hintText: 'Entrez numero de la sim',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
+
+    Widget moovField = TextFormField(
+      keyboardType: TextInputType.number,
+      onChanged: (String onValue) {
+        setState(() {});
+      },
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.sim_card),
+        labelText: 'RECHARGE MOOV',
+        hintText: 'Entrez numero de la sim',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+      ),
+    );
+    Widget moovmoneyField = TextFormField(
+      keyboardType: TextInputType.number,
+      onChanged: (String onValue) {
+        setState(() {});
+      },
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.sim_card),
+        labelText: 'MOOV MONEY',
+        hintText: 'Entrez numero de la sim',
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
@@ -99,19 +111,23 @@ class _RegisterState extends State<Register> {
                 SizedBox(
                   height: 20.0,
                 ),
-                temoinField,
+                lieuField,
                 SizedBox(
                   height: 20.0,
                 ),
-                contactField,
+                mtnField,
                 SizedBox(
                   height: 20.0,
                 ),
-                numField,
+                mtnmomoField,
                 SizedBox(
                   height: 20.0,
                 ),
-                adressField,
+                moovField,
+                SizedBox(
+                  height: 20.0,
+                ),
+                moovmoneyField,
                 GestureDetector(
                   child: Container(
                     child: Text(
@@ -129,14 +145,6 @@ class _RegisterState extends State<Register> {
                       borderRadius: BorderRadius.circular(50.0),
                     ),
                   ),
-                  onTap: (){
-                    setState(() {
-                      Navigator.push(context,
-                          MaterialPageRoute(
-                              builder: (context) => Accueil()
-                          ));
-                    });
-                  },
                 )
               ],
             ),

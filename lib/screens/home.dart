@@ -1,125 +1,145 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:comm/screens/list_point_de_vente.dart';
+import 'package:comm/screens/operation.dart';
+import 'package:comm/screens/register.dart';
+import 'package:flutter/cupertino.dart';
 
-class Homepage extends StatefulWidget {
+import 'package:flutter/material.dart';
+
+class Accueil extends StatefulWidget {
+  // get length => Future.value();
+
   @override
-  _HomepageState createState() => _HomepageState();
+  _AccueilState createState() => _AccueilState();
+  // _AccueilState createState() => _AccueilState(length);
 }
 
-class _HomepageState extends State<Homepage> {
-  List<String> images = [
-    "assets/images/sites.jpg",
-    "assets/images/transactions.jpg",
-    "assets/images/pointfinance.png",
-    "assets/images/endday.jpg",
-  ];
-
-  List<String> titres = [
-    "Mes Sites",
-    "Mes Transactions",
-    "Points Financiers",
-    "Clôturer une Journée"
-  ];
-
-  List categories = [
-    {
-      "title": "Mes Sites",
-      "image": "assets/images/sites.jpg",
-    },
-    {
-      "title": "Mes Transactions",
-      "image": "assets/images/transactions.jpg",
-    },
-    {
-      "title": "Points Financiers",
-      "image": "assets/images/pointfinance.png",
-    },
-    {
-      "title": "Clôturer une Journée",
-      "image": "assets/images/endday.jpg",
-    },
-  ];
-
-  Widget customcard(String catName, String image) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 10.0,
-      ),
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.purpleAccent,
-            borderRadius: BorderRadius.circular(30.0),
-            image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  catName,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+class _AccueilState extends State<Accueil> {
+  List<Map> elmts = [];
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              "GESTION ET SUIVI DES MARCHANDS",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
+      appBar: AppBar(
+        title: Text('COMM'),
+        centerTitle: true,
+        backgroundColor: Colors.purpleAccent,
+//        automaticallyImplyLeading: true,
+      ),
+      backgroundColor: CupertinoColors.white,
+      body: Container(
+        padding: EdgeInsets.all(5.0),
+        color: Colors.white30,
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: <Widget>[
+            GestureDetector(
+              child: Card(
+                color: Colors.purpleAccent,
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Center(
+                  child: Text(
+                    "Mes Sites",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-              itemCount: categories.length,
-              itemBuilder: (BuildContext context, int index) {
-                return customcard(
-                  categories[index]['title'],
-                  categories[index]['image'],
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Operte(),
+                  ),
                 );
               },
             ),
-
-          ),
-        ],
+            GestureDetector(
+              child: Card(
+                color: Colors.purpleAccent,
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Center(
+                  child: Text(
+                    "Mes Transactions",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Operation(),
+                  ),
+                );
+              },
+            ),
+            GestureDetector(
+              child: Card(
+                color: Colors.purpleAccent,
+                elevation: 5.0,
+                // shape: CircleBorder(
+                // ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Center(
+                  child: Text(
+                    "Points Financiers",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Register(),
+                  ),
+                );
+              },
+            ),
+            GestureDetector(
+              child: Card(
+                color: Colors.purpleAccent,
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Center(
+                  child: Text(
+                    "Clôturer une Journée",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => Register(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -26,6 +26,7 @@ class _LoginState extends State<Login> {
     );
 
     Widget passwordField = TextFormField(
+      obscureText: true,
       keyboardType: TextInputType.visiblePassword,
       onChanged: (String onValue) {
         setState(() {});
@@ -79,7 +80,7 @@ class _LoginState extends State<Login> {
                     setState(() {
                       Navigator.push(context,
                           MaterialPageRoute(
-                            builder: (context) => Homepage()
+                            builder: (context) => Accueil()
                           ));
                     });
                   },
